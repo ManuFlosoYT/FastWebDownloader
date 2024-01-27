@@ -6,9 +6,9 @@ using System.Security.Principal;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace FastBulkInstaller
+namespace FastWebDownloader
 {
-    public class FBI
+    public class FWD
     {
         public static string path = Path.Combine(Directory.GetCurrentDirectory(), "config.yaml");
         public static bool isSilent = false;
@@ -62,7 +62,7 @@ namespace FastBulkInstaller
         {
             ProcessStartInfo psi = new ProcessStartInfo
             {
-                FileName = "FastBulkInstaller.exe",
+                FileName = "FastWebDownloader.exe",
                 Verb = "runas"
             };
 

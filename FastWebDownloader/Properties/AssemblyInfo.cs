@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("FastBulkInstaller")]
+[assembly: AssemblyTitle("FastWebDownloader")]
 [assembly: AssemblyDescription("Install your programs in bulk mode.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ManuFlosoYT")]
-[assembly: AssemblyProduct("FastBulkInstaller")]
+[assembly: AssemblyProduct("FastWebDownloader")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -6,13 +6,13 @@ using System.Net.Http;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace FastBulkInstaller
+namespace FastWebDownloader
 {
     public class Installer
     {
         public static void ReadFile()
         {
-            IEnumerable<string> lines = File.ReadLines(FBI.path);
+            IEnumerable<string> lines = File.ReadLines(FWD.path);
 
             List<string> list = new List<string>(lines);
 
@@ -20,7 +20,7 @@ namespace FastBulkInstaller
 
             Console.ForegroundColor = ConsoleColor.White;
 
-            foreach (AppInfo appInfo in FBI.database.DB)
+            foreach (AppInfo appInfo in FWD.database.DB)
             {
                 if (list.Contains(appInfo.Codename))
                 {
@@ -41,7 +41,7 @@ namespace FastBulkInstaller
                 }
             }
 
-            if (!FBI.isSilent)
+            if (!FWD.isSilent)
             {
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -49,8 +49,8 @@ namespace FastBulkInstaller
                 char response = Console.ReadKey().KeyChar;
                 if (response == 'y' || response == 'Y')
                 {
-                    File.Delete(FBI.path);
-                    FBI.CreateConfigFile();
+                    File.Delete(FWD.path);
+                    FWD.CreateConfigFile();
                 }
                 Console.WriteLine();
                 Console.WriteLine("Instalation finished, press any key to return . . .");
@@ -121,7 +121,7 @@ namespace FastBulkInstaller
         {
             if (Directory.Exists(path))
             {
-                string excludedFileName = "FastBulkInstaller.exe";
+                string excludedFileName = "FastWebDownloader.exe";
                 string[] exeFiles = Directory.GetFiles(path, "*.exe");
 
                 foreach (string exeFile in exeFiles)

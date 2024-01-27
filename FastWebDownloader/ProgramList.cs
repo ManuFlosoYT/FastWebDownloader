@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FastBulkInstaller
+namespace FastWebDownloader
 {
     public class ProgramList
     {
@@ -29,7 +29,7 @@ namespace FastBulkInstaller
             Console.WriteLine();
 
             Console.WriteLine();
-            foreach (AppInfo appInfo in FBI.database.DB)
+            foreach (AppInfo appInfo in FWD.database.DB)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write(appInfo.Codename);

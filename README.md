@@ -1,8 +1,8 @@
-# FastBulkInstaller
+# FastWebDownloader
 
-An easy way to bulk install your programs
+An easy way to bulk download videos
 
-![Project Logo](FastBulkInstaller/Images/logo.png)
+![Project Logo](FastWebDownloader/Images/logo.png)
 
 ![Compat](https://img.shields.io/badge/Compatibility:-Windows 10/11-blue)
 
@@ -17,8 +17,8 @@ https://youtu.be/O5OVfGqE_po
 
 ## Screenshots
 
-![Main Menu](FastBulkInstaller/Images/menu.png)
-![Program List](FastBulkInstaller/Images/programList.png)
+![Main Menu](FastWebDownloader/Images/menu.png)
+![Program List](FastWebDownloader/Images/programList.png)
 
 ## Installation
 
@@ -32,7 +32,7 @@ No instalation needed.
 3. Copy the codenames and paste them on "config.yaml"
 4. Select how you want to install
     1. (Via the FBI UI) Select option 2 on the main menu to install
-    2. (UltraSilent) (FastBulkInstaller.exe /S) via cmd
+    2. (UltraSilent) (FastWebDownloader.exe /S) via cmd
 
 
 ## Contributing

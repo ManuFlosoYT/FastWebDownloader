@@ -6,14 +6,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{68F66770-931B-44EB-A638-093B22451EB6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FastBulkInstaller</RootNamespace>
-    <AssemblyName>FastBulkInstaller</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>FastWebDownloader</RootNamespace>
+    <AssemblyName>FastWebDownloader</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>D:\Programas\Visual Studio\FastBulkInstaller\Build\</PublishUrl>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\Programas\Visual Studio\FastWebDownloader\Build\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <InstallUrl>https://github.com/ManuFlosoYT/FastBulkInstaller/</InstallUrl>
+    <InstallUrl>https://github.com/ManuFlosoYT/FastWebDownloader/</InstallUrl>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>1</ApplicationRevision>
@@ -33,7 +34,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -44,6 +45,10 @@
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,7 +66,7 @@
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>FastBulkInstaller.FBI</StartupObject>
+    <StartupObject>FastWebDownloader.FWD</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -80,7 +85,7 @@
     <ManifestCertificateThumbprint>9BE47D1DEB038CC926086D4D35512BA34B642439</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>FastBulkInstaller_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>FastWebDownloader_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>

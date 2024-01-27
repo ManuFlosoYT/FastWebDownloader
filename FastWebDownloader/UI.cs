@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Security.Principal;
 
-namespace FastBulkInstaller
+namespace FastWebDownloader
 {
     public class UI
     {
@@ -18,7 +18,7 @@ namespace FastBulkInstaller
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             Console.WriteLine("1. List the available apps");
-            if (FBI.isAdmin)
+            if (FWD.isAdmin)
             {
                 Console.WriteLine("2. Install apps");
             }
@@ -51,17 +51,17 @@ namespace FastBulkInstaller
                     ProgramList.List();
                     break;
                 case 2:
-                    if (FBI.isAdmin)
+                    if (FWD.isAdmin)
                     {
                         Installer.ReadFile();
                     }
                     else
                     {
-                        FBI.AskAdmin();
+                        FWD.AskAdmin();
                     }
                     break;
                 case 3:
-                    string url = "https://github.com/ManuFlosoYT/FastBulkInstaller";
+                    string url = "https://github.com/ManuFlosoYT/FastWebDownloader";
                     Process.Start(url);
                     break;
                 case 4:

@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace FastBulkInstaller
+namespace FastWebDownloader
 {
     public class FetchDatabase
     {
