@@ -88,21 +88,6 @@ namespace FastWebDownloader
             }
         }
     }
-
-    public class AppInfo
-    {
-        public string Codename { get; set; }
-        public string Name { get; set; }
-        public string Url { get; set; }
-        public string Version { get; set; }
-        public bool InstalableSilently { get; set; }
-        public string InstallCommand { get; set; }
-        public string InstallRoute { get; set; }
-        public string FileName { get; set; }
     }
-
-    public class Database
-    {
-        public List<AppInfo> DB { get; set; }
     }
 }

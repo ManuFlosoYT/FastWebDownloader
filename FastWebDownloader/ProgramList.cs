@@ -29,25 +29,6 @@ namespace FastWebDownloader
             Console.WriteLine();
 
             Console.WriteLine();
-            foreach (AppInfo appInfo in FWD.database.DB)
-            {
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.Write(appInfo.Codename);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" | ");
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write(appInfo.Name);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" | ");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write(appInfo.Version);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" | ");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.Write(appInfo.InstalableSilently);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine();
-            }
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
