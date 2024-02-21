@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
 using YoutubeDLSharp.Metadata;
+using System.Diagnostics;
 using YoutubeDLSharp.Options;
 
 namespace FastWebDownloader
@@ -20,7 +21,7 @@ namespace FastWebDownloader
 
             list.RemoveAt(0);
 
-
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Are you downloading music? (y/n) (invalid inputs will be considered as 'n'): ");
             char responseMusic = Console.ReadKey().KeyChar;
@@ -46,7 +47,22 @@ namespace FastWebDownloader
       
             }
 
+            /* NOT YET IMPLEMENTED
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Converting all audio files to the correct format");
             Console.ForegroundColor = ConsoleColor.White;
+
+
+            //convert opus to mp3
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "downloads");
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = $"cd {path} || for %f in (*.opus) do ffmpeg -i \"%f\" \"%~nf.mp3\" || del *.opus";
+            process.Start();
+            process.WaitForExit();
+
+            */
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -95,11 +111,18 @@ namespace FastWebDownloader
                 RestrictFilenames = true
             };
 
+            var optionsMusic = new OptionSet()
+            {
+                NoContinue = true,
+                RestrictFilenames = true,
+            };
+
             if (IsMusic)
             {
                 var resMusic = await ytdl.RunAudioDownload(
                     url,
-                    AudioConversionFormat.Mp3
+                    AudioConversionFormat.Mp3,
+                    overrideOptions: optionsMusic
                 );
             }
             else
@@ -130,7 +153,7 @@ namespace FastWebDownloader
 
             var options = new OptionSet()
             {
-                Exec = "for %f in (*.mp3 *.wav *.flac *.ogg) do ffmpeg -i \"%f\" \"%~nf.mp3\""
+                RestrictFilenames = true
             };
 
 
@@ -144,7 +167,8 @@ namespace FastWebDownloader
             else
             {
                 var res = await ytdl.RunVideoPlaylistDownload(
-                    url
+                    url,
+                    overrideOptions: options
                 );
             }
 

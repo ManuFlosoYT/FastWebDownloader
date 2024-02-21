@@ -21,9 +21,8 @@ namespace FastWebDownloader
             Console.WriteLine("3. Exit");
             Console.ForegroundColor = ConsoleColor.White;
 
-
-            string input = Console.ReadLine();
-            if (int.TryParse(input, out int choice))
+            char response = Console.ReadKey().KeyChar;
+            if (int.TryParse(response.ToString(), out int choice))
             {
                 if (choice < 1 || choice > 3)
                 {
