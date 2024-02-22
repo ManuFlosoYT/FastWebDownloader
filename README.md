@@ -8,12 +8,12 @@ An easy way to bulk download videos
 
 ## Tutorial
 
-https://youtu.be/O5OVfGqE_po
+Not yet available :(
 
 ## Features
 
-- Easily and Silently bulk install programs
-- UltraSilent bulk install mode
+- Easily download videos from the web
+- Portable configuration file
 
 ## Screenshots
 
@@ -27,17 +27,15 @@ No instalation needed.
 
 ## Usage
 
-1. Launch FBI to create "config.yaml" file
-2. Select option 1 to check available programs on the database
-3. Copy the codenames and paste them on "config.yaml"
-4. Select how you want to install
-    1. (Via the FBI UI) Select option 2 on the main menu to install
-    2. (UltraSilent) (FastWebDownloader.exe /S) via cmd
+1. Launch FWD to create "config.yaml" file
+2. Copy YouTube URLs and paste them on "config.yaml"
+3. Select if you want them to be downloaded as audio or video
+4. Wait for the downloads to finish
 
 
 ## Contributing
 
-Contributions expanding the database are always welcomed! To contribute open a new issue with the database tag.
+Contributions are always welcomed! To contribute open a new issue and fork the proyect.
 [FBI database](https://pastebin.com/XkgNYRTL)
 
 ## Reposting

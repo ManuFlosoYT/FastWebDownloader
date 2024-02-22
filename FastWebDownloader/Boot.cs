@@ -8,6 +8,7 @@ namespace FastWebDownloader
     public class FWD
     {
         public static string path = Path.Combine(Directory.GetCurrentDirectory(), "config.yaml");
+        public static string downloadsPath = Path.Combine(Directory.GetCurrentDirectory(), "downloads");
         public static string YtDlppath = Path.Combine(Directory.GetCurrentDirectory(), "yt-dlp.exe");
         public static string FFmpegpath = Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg.exe");
 

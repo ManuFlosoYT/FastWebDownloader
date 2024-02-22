@@ -7,6 +7,7 @@ using YoutubeDLSharp.Metadata;
 using System.Diagnostics;
 using YoutubeDLSharp.Options;
 
+
 namespace FastWebDownloader
 {
     public class Downloader
@@ -47,22 +48,45 @@ namespace FastWebDownloader
       
             }
 
-            /* NOT YET IMPLEMENTED
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("Converting all audio files to the correct format");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Deleting temporal files...");
             Console.ForegroundColor = ConsoleColor.White;
 
 
-            //convert opus to mp3
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "downloads");
-            Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = $"cd {path} || for %f in (*.opus) do ffmpeg -i \"%f\" \"%~nf.mp3\" || del *.opus";
-            process.Start();
-            process.WaitForExit();
+            //foreach file in a directory remove spaces from the file name
+            foreach (string filePath in Directory.EnumerateFiles(FWD.downloadsPath))
+            {
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                string fileExtension = Path.GetExtension(filePath);
 
-            */
+                //In the string the is a "[" and "]", delete everything between them and the brackets
+                if (fileName.Contains("[") && fileName.Contains("]"))
+                {
+                    int start = fileName.IndexOf('[');
+                    int end = fileName.IndexOf(']');
+                    fileName = fileName.Remove(start, end - start + 1);
+                }
+
+                //Delete any non alphanumeric characters
+                fileName = System.Text.RegularExpressions.Regex.Replace(fileName, "[^a-zA-Z0-9_]+", "", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+                //If string has 2  or more consecutive underscores, remove one
+                fileName = System.Text.RegularExpressions.Regex.Replace(fileName, "(_{2,})", "_", System.Text.RegularExpressions.RegexOptions.Compiled);
+                
+                //If the file name is the same as the new file name, skip it
+                try
+                {
+                    File.Move(filePath, Path.Combine(FWD.downloadsPath, fileName + fileExtension));
+                }
+                catch (IOException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Error renaming {fileName}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
+
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -78,8 +102,6 @@ namespace FastWebDownloader
             Console.ReadKey();
             UI.MainMenu();
         }
-
-
 
 
         public static async Task Download(string url, bool IsMusic)
@@ -100,7 +122,7 @@ namespace FastWebDownloader
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write($" {title} ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($" to ");
+            Console.Write($"to ");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write($"{ytdl.OutputFolder}");
             Console.WriteLine();
@@ -115,13 +137,13 @@ namespace FastWebDownloader
             {
                 NoContinue = true,
                 RestrictFilenames = true,
+                AudioFormat = AudioConversionFormat.Mp3
             };
 
             if (IsMusic)
             {
                 var resMusic = await ytdl.RunAudioDownload(
-                    url,
-                    AudioConversionFormat.Mp3,
+                    url, 
                     overrideOptions: optionsMusic
                 );
             }
@@ -156,12 +178,18 @@ namespace FastWebDownloader
                 RestrictFilenames = true
             };
 
+            var optionsMusic = new OptionSet()
+            {
+                RestrictFilenames = true,
+                AudioFormat = AudioConversionFormat.Mp3
+            };
+
 
             if (IsMusic)
             {
                 var res = await ytdl.RunAudioPlaylistDownload(
                     url,
-                    overrideOptions: options
+                    overrideOptions: optionsMusic
                 );
             }
             else
