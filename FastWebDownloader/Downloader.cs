@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
 using YoutubeDLSharp.Metadata;
-using System.Diagnostics;
 using YoutubeDLSharp.Options;
 
 
@@ -48,46 +47,6 @@ namespace FastWebDownloader
       
             }
 
-
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Deleting temporal files...");
-            Console.ForegroundColor = ConsoleColor.White;
-
-
-            //foreach file in a directory remove spaces from the file name
-            foreach (string filePath in Directory.EnumerateFiles(FWD.downloadsPath))
-            {
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
-                string fileExtension = Path.GetExtension(filePath);
-
-                //In the string the is a "[" and "]", delete everything between them and the brackets
-                if (fileName.Contains("[") && fileName.Contains("]"))
-                {
-                    int start = fileName.IndexOf('[');
-                    int end = fileName.IndexOf(']');
-                    fileName = fileName.Remove(start, end - start + 1);
-                }
-
-                //Delete any non alphanumeric characters
-                fileName = System.Text.RegularExpressions.Regex.Replace(fileName, "[^a-zA-Z0-9_]+", "", System.Text.RegularExpressions.RegexOptions.Compiled);
-
-                //If string has 2  or more consecutive underscores, remove one
-                fileName = System.Text.RegularExpressions.Regex.Replace(fileName, "(_{2,})", "_", System.Text.RegularExpressions.RegexOptions.Compiled);
-                
-                //If the file name is the same as the new file name, skip it
-                try
-                {
-                    File.Move(filePath, Path.Combine(FWD.downloadsPath, fileName + fileExtension));
-                }
-                catch (IOException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Error renaming {fileName}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-            }
-
-
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Do you want to wipe config.yaml? (y/n) (invalid inputs will be considered as 'n'): ");
@@ -110,7 +69,6 @@ namespace FastWebDownloader
             ytdl.OutputFolder = Path.Combine(Directory.GetCurrentDirectory(), "downloads");
             ytdl.YoutubeDLPath = FWD.YtDlppath;
             ytdl.FFmpegPath = FWD.FFmpegpath;
-
 
 
             var res = await ytdl.RunVideoDataFetch(url);

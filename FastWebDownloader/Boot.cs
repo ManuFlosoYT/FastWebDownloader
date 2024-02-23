@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace FastWebDownloader
