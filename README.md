@@ -6,10 +6,6 @@ An easy way to bulk download videos
 
 ![Compat](https://img.shields.io/badge/Compatibility:-Windows 10/11-blue)
 
-## Tutorial
-
-Not yet available :(
-
 ## Features
 
 - Easily download videos from the web
@@ -18,7 +14,7 @@ Not yet available :(
 ## Screenshots
 
 ![Main Menu](FastWebDownloader/Images/menu.png)
-![Program List](FastWebDownloader/Images/programList.png)
+![Video Download](FastWebDownloader/Images/download.png)
 
 ## Installation
 
@@ -32,11 +28,9 @@ No instalation needed.
 3. Select if you want them to be downloaded as audio or video
 4. Wait for the downloads to finish
 
-
 ## Contributing
 
 Contributions are always welcomed! To contribute open a new issue and fork the proyect.
-[FBI database](https://pastebin.com/XkgNYRTL)
 
 ## Reposting
 Please <u>DO NOT.</u> repost the .exe file directly, redirecting to the proyect's GitHub page is allowed.
