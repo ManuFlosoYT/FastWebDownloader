@@ -24,7 +24,7 @@ No instalation needed.
 ## Usage
 
 1. Launch FWD to create "config.yaml" file
-2. Copy YouTube URLs and paste them on "config.yaml"
+2. Copy YouTube URLs and paste them on "config.yaml", add 1 youtube link per line
 3. Select if you want them to be downloaded as audio or video
 4. Wait for the downloads to finish
 
