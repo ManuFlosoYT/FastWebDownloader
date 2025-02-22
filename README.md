@@ -14,6 +14,7 @@ An easy way to bulk download videos
 ## Screenshots
 
 ![Main Menu](FastWebDownloader/Images/menu.png)
+![Config file](FastWebDownloader/Images/config.png)
 ![Video Download](FastWebDownloader/Images/download.png)
 
 ## Installation
