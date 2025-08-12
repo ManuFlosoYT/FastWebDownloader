@@ -1,6 +1,6 @@
 # FastWebDownloader
 
-An easy way to bulk download videos
+An easy way to bulk download YouTube videos and playlists!
 
 ![Project Logo](FastWebDownloader/Images/logo.png)
 
