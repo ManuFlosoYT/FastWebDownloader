@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace FastWebDownloader
 {
@@ -14,7 +15,7 @@ namespace FastWebDownloader
 
         public static void Main(string[] args)
         {
-            DownloadToolsAsync().Wait();
+            EnsureLatestToolsAsync().Wait();
             CreateConfigFile();
             UI.MainMenu();
         }
@@ -26,9 +27,15 @@ namespace FastWebDownloader
             {
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine("#Add one url per line without separators or spaces, DO NOT EDIT THIS FIRST LINE as this line is ignored in code");
+                    sw.WriteLine("#Add one url per line without separators or spaces #When downloading a channel put the raw url https://www.youtube.com/@channel # DO NOT EDIT THIS FIRST LINE as this line is ignored in code");
                 }
             }
+        }
+
+        public static async Task EnsureLatestToolsAsync()
+        {
+            await DownloadToolsAsync();
+            await UpdateYtDlpAsync();
         }
 
         public static async Task DownloadToolsAsync()
@@ -46,6 +53,37 @@ namespace FastWebDownloader
                 Console.WriteLine("Downloading FFmpeg Library, this could take some time...");
                 Console.ForegroundColor = ConsoleColor.White;
                 await YoutubeDLSharp.Utils.DownloadFFmpeg();
+            }
+        }
+
+        private static async Task UpdateYtDlpAsync()
+        {
+            try
+            {
+                if (File.Exists(YtDlppath))
+                {
+                    var psi = new ProcessStartInfo
+                    {
+                        FileName = YtDlppath,
+                        Arguments = "-U",
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                        WorkingDirectory = Directory.GetCurrentDirectory()
+                    };
+                    using (var p = new Process { StartInfo = psi })
+                    {
+                        p.Start();
+                        await Task.Run(() => p.WaitForExit());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Warning: yt-dlp update failed: " + ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
     }

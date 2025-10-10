@@ -13,6 +13,8 @@ namespace FastWebDownloader
             Console.WriteLine("\r\n                                          \r\n                                          \r\n    ,---,.            .---.     ,---,     \r\n  ,'  .' |           /. ./|   .'  .' `\\   \r\n,---.'   |       .--'.  ' ; ,---.'     \\  \r\n|   |   .'      /__./ \\ : | |   |  .`\\  | \r\n:   :  :    .--'.  '   \\' . :   : |  '  | \r\n:   |  |-, /___/ \\ |    ' ' |   ' '  ;  : \r\n|   :  ;/| ;   \\  \\;      : '   | ;  .  | \r\n|   |   .'  \\   ;  `      | |   | :  |  ' \r\n'   :  '     .   \\    .\\  ; '   : | /  ;  \r\n|   |  |      \\   \\   ' \\ | |   | '` ,/   \r\n|   :  \\       :   '  |--\"  ;   :  .'     \r\n|   | ,'        \\   \\ ;     |   ,.'       \r\n`----'           '---\"      '---'         \r\n                                          \r\n");
             Console.ForegroundColor = ConsoleColor.White;
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Fast Web Downloader v1.4.0");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
